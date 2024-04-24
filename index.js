@@ -10,6 +10,10 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser());
+const port = 8000;
+app.listen(8000, () => {
+  console.log(`Starting Server on port ${port}`)
+})
 
 // view engine
 mongoose.set('strictQuery', false);
