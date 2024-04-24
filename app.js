@@ -12,11 +12,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 // view engine
+mongoose.set('strictQuery', false);
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = `mongodb+srv://roshanlal0156:yw4pm9d0yZyXNd04@cluster0.c5oypqs.mongodb.net/node-auth`;
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
+const dbURI = 'mongodb+srv://roshanlal0156:yw4pm9d0yZyXNd04@cluster0.c5oypqs.mongodb.net/node-auth?authSource=admin&replicaSet=atlas-jzh6nw-shard-0&ssl=true';
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
 
